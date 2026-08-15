@@ -1,4 +1,3 @@
-
 # 🚀 Rank&File — AI Resume Screening & Candidate Ranking System
 
 An AI-powered recruitment automation and ATS optimization platform built with **FastAPI**, **Vanilla JavaScript**, and **Groq (LLaMA 3.3 70B)**. It decomposes candidate evaluation into an explainable 3-layer matching model, generates tailored resumes, and provides an interactive AI assistant for recruitment workflows.
