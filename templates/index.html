@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rank&File | Smart Resume Screening & Candidate Ranking Tool</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons & PDF.js CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+  <!-- Static Stylesheet -->
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        <div class="logo-icon">
+          <i data-lucide="sparkles"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Rank&File</h1>
+          <p>Smart Resume Screening and Candidate Ranking Tool</p>
+        </div>
+      </div>
+      
+      <nav class="nav-links">
+        <button class="nav-link active" data-tab="tab-landing">Home</button>
+        <button class="nav-link" data-tab="tab-matcher">Skill Analyzer</button>
+        <button class="nav-link" data-tab="tab-admin">Ranking Portal</button>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="btn btn-primary btn-sm nav-cta" data-tab="tab-matcher">
+          <i data-lucide="wand-2"></i> Try Tool Now
+        </button>
+        <button class="theme-toggle" id="btn-theme-toggle" title="Toggle Light/Dark Theme">
+          <i data-lucide="sun"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- TAB 1: LANDING PAGE -->
+    <section id="tab-landing" class="tab-content active">
+      <div class="hero-section">
+        <div class="hero-badge">
+          <i data-lucide="zap" style="width: 14px; height: 14px; color: var(--primary);"></i>
+          <span>Smart Resume Screening and Candidate Ranking Tool</span>
+        </div>
+        <h1 class="hero-title">
+          Land Your Dream Job with AI Skill Gap Analysis & 1-Click Resume Tailoring
+        </h1>
+        <p class="hero-subtitle">
+          Instantly analyze resumes against any job description, pinpoint missing technical skills, extract structural ATS scores, and generate tailored applications in seconds.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg tab-nav-btn" data-tab="tab-matcher">
+            <i data-lucide="wand-2"></i> Launch Skill Analyzer Tool
+          </button>
+          <button class="btn btn-outline btn-lg tab-nav-btn" data-tab="tab-admin">
+            <i data-lucide="shield-check"></i> Open Ranking Dashboard
+          </button>
+        </div>
+
+        <div class="hero-preview-card glass-card">
+          <div class="preview-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="preview-dot dot-red"></span>
+              <span class="preview-dot dot-yellow"></span>
+              <span class="preview-dot dot-green"></span>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Rank&File Engine • Multi-Metric Preview</span>
+          </div>
+
+          <div class="preview-content">
+            <div class="preview-score-box">
+              <div class="score-circle" style="width: 80px; height: 80px;">
+                <span style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-heading);">88%</span>
+                <span style="font-size: 0.6rem; text-transform: uppercase;">Overall</span>
+              </div>
+              <div>
+                <span class="badge badge-success">High Match Ready</span>
+                <h4 style="margin-top: 4px; font-size: 0.95rem;">Full Stack Engineer Alignment</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Hard Skill Match: 85% | TF-IDF Semantic: 90% | ATS Ready: 88%</p>
+              </div>
+            </div>
+
+            <div class="preview-skills">
+              <div>
+                <span class="section-sub">🟩 MATCHED SKILLS</span>
+                <div class="skill-pills">
+                  <span class="skill-pill match">React</span>
+                  <span class="skill-pill match">TypeScript</span>
+                  <span class="skill-pill match">Node.js</span>
+                  <span class="skill-pill match">PostgreSQL</span>
+                </div>
+              </div>
+              <div>
+                <span class="section-sub" style="color: var(--danger);">🟥 MISSING SKILLS NEEDED</span>
+                <div class="skill-pills">
+                  <span class="skill-pill missing">Docker</span>
+                  <span class="skill-pill missing">GraphQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-bar glass-card">
+        <div class="stat-item">
+          <span class="stat-num">98%</span>
+          <span class="stat-lbl">ATS Audit Accuracy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">Multiple</span>
+          <span class="stat-lbl">Tech Skill Taxonomies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">3-Layer</span>
+          <span class="stat-lbl">Decomposed Scoring Model</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Local Engine & Python Runtime</span>
+        </div>
+      </div>
+
+      <div style="margin: 60px 0 40px;">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 36px;">
+          <h2 class="section-heading">Everything You Need to Rank & Tailor Resumes</h2>
+          <p class="section-description">
+            Combines SentenceTransformer neural embeddings, entity parsing, structural ATS audits, and candidate comparison dashboards.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card glass-card">
+            <div class="feature-icon" style="background: rgba(79, 70, 229, 0.1); color: var(--primary);">
+              <i data-lucide="git-pull-request"></i>
+            </div>
+            <h3>Vector & Skill Gap Analyzer</h3>
+            <p>Calculates cosine vector similarity alongside categorized hard-skill taxonomy matching to produce exact gap analysis.</p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">
+              <i data-lucide="file-check"></i>
+            </div>
+            <h3>1-Click Resume Tailoring</h3>
+            <p>Generates an ATS-compliant, cleanly formatted text resume with missing keywords seamlessly integrated into context.</p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon" style="background: rgba(2, 132, 199, 0.1); color: var(--accent-cyan);">
+              <i data-lucide="users"></i>
+            </div>
+            <h3>Candidate Ranking & Leaderboard</h3>
+            <p>Automatically sorts applicants by composite match score, providing candidate evaluation panels for recruiters.</p>
+          </div>
+
+          <div class="feature-card glass-card">
+            <div class="feature-icon" style="background: rgba(217, 119, 6, 0.1); color: var(--warning);">
+              <i data-lucide="bot"></i>
+            </div>
+            <h3>AI Assistant Integration</h3>
+            <p>Embedded Assistant connected via FastAPI backend to answer questions regarding ATS guidelines, resume fixes, and candidate evaluation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-banner glass-card" style="margin-bottom: 40px;">
+        <h2>Ready to Rank Candidates & Fix Skill Gaps?</h2>
+        <p style="margin: 8px 0 20px; color: var(--text-muted);">
+          Analyze resumes against target roles or run candidate pool ranking in seconds.
+        </p>
+        <button class="btn btn-primary btn-lg tab-nav-btn" data-tab="tab-matcher">
+          <i data-lucide="wand-2"></i> Launch Skill Analyzer Now
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB 2: SKILL ANALYZER -->
+    <section id="tab-matcher" class="tab-content">
+      <div class="input-grid">
+        <div class="glass-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h2 class="card-title">
+              <i data-lucide="file-text" style="color: var(--primary);"></i> Step 1: Candidate Resume
+            </h2>
+            <button type="button" class="btn btn-outline btn-sm" id="btn-reset-resume" title="Clear and upload a new resume">
+              <i data-lucide="rotate-ccw"></i> Reset Resume
+            </button>
+          </div>
+
+          <div class="dropzone" id="resume-dropzone">
+            <i data-lucide="upload-cloud" class="upload-icon"></i>
+            <p class="drop-text">Drag & Drop Resume File (.PDF or .TXT)</p>
+            <p class="drop-subtext">or click to browse from your computer</p>
+            <input type="file" id="file-input" accept=".txt,.pdf" style="display: none;">
+          </div>
+
+          <div style="text-align: center; margin: 12px 0; color: var(--text-dim); font-size: 0.8rem;">
+            — OR PASTE RESUME TEXT BELOW —
+          </div>
+
+          <textarea id="resume-text" class="text-input" placeholder="Paste resume text here..."></textarea>
+        </div>
+
+        <div class="glass-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h2 class="card-title">
+              <i data-lucide="briefcase" style="color: var(--primary);"></i> Step 2: Target Job Posting
+            </h2>
+            <select id="select-sample-job" class="select-custom"></select>
+          </div>
+
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+            Select a target position or paste custom job requirements below:
+          </p>
+
+          <textarea id="job-text" class="text-input" style="height: 310px;" placeholder="Paste job description text here..."></textarea>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 28px 0;">
+        <button class="btn btn-primary btn-lg" id="btn-analyze">
+          <i data-lucide="wand-2"></i> Run Multi-Metric Analysis & Tailor Resume
+        </button>
+      </div>
+
+      <div id="results-section" style="display: none; animation: fadeIn 0.4s ease;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 24px;">
+          
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <h3 class="card-title" style="margin-bottom: 10px; font-size: 0.95rem;">Overall Composite Match</h3>
+            <div class="score-circle" id="score-meter">
+              <span id="score-val">0%</span>
+              <span class="score-lbl">Composite</span>
+            </div>
+            <span class="badge badge-success" id="score-badge" style="margin-top: 12px;">Match Ready</span>
+          </div>
+
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <h3 class="card-title" style="margin-bottom: 10px; font-size: 0.95rem; color: var(--primary);">
+              <i data-lucide="code-2" style="width: 16px; height: 16px;"></i> Hard Skills Match
+            </h3>
+            <div class="score-circle" id="sub-hardskill-meter">
+              <span id="sub-hardskill-val">0%</span>
+              <span class="score-lbl">Overlap</span>
+            </div>
+            <span class="badge badge-success" id="sub-hardskill-badge" style="margin-top: 12px;">Taxonomy</span>
+          </div>
+
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <h3 class="card-title" style="margin-bottom: 10px; font-size: 0.95rem; color: var(--accent-cyan);">
+              <i data-lucide="cpu" style="width: 16px; height: 16px;"></i> Semantic Similarity
+            </h3>
+            <div class="score-circle" id="sub-semantic-meter">
+              <span id="sub-semantic-val">0%</span>
+              <span class="score-lbl">Embedding</span>
+            </div>
+            <span class="badge badge-success" id="sub-semantic-badge" style="margin-top: 12px;">Vector Match</span>
+          </div>
+
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <h3 class="card-title" style="margin-bottom: 10px; font-size: 0.95rem; color: var(--success);">
+              <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i> ATS Structural Audit
+            </h3>
+            <div class="score-circle" id="ats-score-meter">
+              <span id="ats-score-val">0%</span>
+              <span class="score-lbl">Format</span>
+            </div>
+            <span class="badge badge-success" id="ats-score-badge" style="margin-top: 12px;">ATS Ready</span>
+          </div>
+
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+          <div class="glass-card">
+            <h3 class="card-title" style="margin-bottom: 14px;">
+              <i data-lucide="git-pull-request" style="color: var(--primary);"></i> Skill Gap Breakdown
+            </h3>
+            <div style="margin-bottom: 16px;">
+              <p class="section-sub">🟩 MATCHED TECHNICAL SKILLS</p>
+              <div class="skill-pills" id="matched-skills-container"></div>
+            </div>
+
+            <div>
+              <p class="section-sub" style="color: var(--danger);">🟥 MISSING REQUIRED SKILLS</p>
+              <div class="skill-pills" id="missing-skills-container"></div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-title" style="margin-bottom: 14px; color: var(--accent-cyan);">
+              <i data-lucide="help-circle"></i> Suggested Interview Screening Questions
+            </h3>
+            <div id="interview-questions-container"></div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="margin-bottom: 24px;">
+          <h3 class="card-title" style="margin-bottom: 14px;">
+            <i data-lucide="lightbulb" style="color: var(--warning);"></i> Actionable Resume Fixes to Boost Score
+          </h3>
+          <div id="suggestions-container"></div>
+        </div>
+
+        <div class="glass-card" style="border: 1px solid var(--glass-border-glow);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <span class="badge badge-success" style="margin-bottom: 4px;">1-Click AI Tailored</span>
+              <h3 class="card-title" style="font-size: 1.25rem;">
+                <i data-lucide="file-check" style="color: var(--success);"></i> Tailored Resume Output
+              </h3>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="btn btn-outline btn-sm" id="btn-copy-resume">
+                <i data-lucide="copy"></i> Copy Text
+              </button>
+              <button class="btn btn-primary btn-sm" id="btn-download-txt">
+                <i data-lucide="download"></i> Download (.TXT)
+              </button>
+            </div>
+          </div>
+
+          <pre id="tailored-resume-preview" class="tailored-preview"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: ADMIN & LEADERBOARD -->
+    <section id="tab-admin" class="tab-content">
+      <div class="glass-card" style="margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 class="card-title" style="font-size: 1.3rem;">
+              <i data-lucide="briefcase" style="color: var(--primary);"></i> Job Postings Management
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
+              Manage active positions and requirements used for candidate ranking.
+            </p>
+          </div>
+          <button class="btn btn-primary" id="btn-open-add-job-modal">
+            <i data-lucide="plus-circle"></i> Add New Job Opening
+          </button>
+        </div>
+
+        <div class="admin-grid" id="admin-jobs-container"></div>
+      </div>
+
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 class="card-title" style="font-size: 1.3rem;">
+              <i data-lucide="users" style="color: var(--primary);"></i> Candidate Pool & Leaderboard Ranking
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
+              Candidates automatically ranked by composite match score against target job post.
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <select id="admin-filter-job-select" class="select-custom"></select>
+            <button class="btn btn-outline btn-sm" id="btn-export-csv" title="Export Candidate Rankings to CSV">
+              <i data-lucide="download"></i> Export CSV
+            </button>
+            <button class="btn btn-primary" id="btn-open-add-applicant-modal">
+              <i data-lucide="user-plus"></i> Add Applicant
+            </button>
+            <button class="btn btn-danger btn-sm" id="btn-clear-all-applicants" title="Clear Candidate Database">
+              <i data-lucide="trash-2"></i> Wipe Database
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-grid" id="admin-applicants-container"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ADD JOB MODAL -->
+  <div class="modal-overlay" id="modal-add-job">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 style="font-family: var(--font-heading); font-size: 1.25rem;">
+          <i data-lucide="plus-circle" style="color: var(--primary);"></i> Add New Job Opening
+        </h2>
+        <button class="close-modal" id="btn-close-job-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Job Title</label>
+          <input type="text" id="input-job-title" class="select-custom" placeholder="e.g. Senior Backend Engineer" style="width: 100%;">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+          <div>
+            <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Department</label>
+            <input type="text" id="input-job-dept" class="select-custom" placeholder="e.g. Engineering" style="width: 100%;">
+          </div>
+          <div>
+            <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Experience Required</label>
+            <input type="text" id="input-job-exp" class="select-custom" placeholder="e.g. 2+ Years" style="width: 100%;">
+          </div>
+        </div>
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Required Skills (Comma-separated)</label>
+          <input type="text" id="input-job-skills" class="select-custom" placeholder="e.g. Python, SQL, Docker, FastAPI" style="width: 100%;">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Job Description Text</label>
+          <textarea id="input-job-desc" class="text-input" style="height: 140px;" placeholder="Paste detailed job requirements here..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" id="btn-submit-job" style="width: 100%; justify-content: center;">
+          <i data-lucide="check"></i> Save & Publish Job
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD APPLICANT MODAL -->
+  <div class="modal-overlay" id="modal-add-applicant">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 style="font-family: var(--font-heading); font-size: 1.25rem;">
+          <i data-lucide="user-plus" style="color: var(--primary);"></i> Add New Applicant
+        </h2>
+        <button class="close-modal" id="btn-close-applicant-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+          <div>
+            <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Applicant Name</label>
+            <input type="text" id="input-app-name" class="select-custom" placeholder="e.g. Rahul Sharma" style="width: 100%;">
+          </div>
+          <div>
+            <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Email (Optional)</label>
+            <input type="email" id="input-app-email" class="select-custom" placeholder="e.g. rahul@example.com" style="width: 100%;">
+          </div>
+        </div>
+
+        <div class="dropzone" id="modal-app-dropzone" style="margin-bottom: 14px; padding: 14px;">
+          <i data-lucide="upload-cloud" class="upload-icon" style="width: 28px; height: 28px;"></i>
+          <p class="drop-text" style="font-size: 0.85rem;">Upload Resume (.PDF or .TXT)</p>
+          <input type="file" id="modal-app-file-input" accept=".txt,.pdf" style="display: none;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Resume Text</label>
+          <textarea id="input-app-resume" class="text-input" style="height: 150px;" placeholder="Paste resume text or upload file above..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" id="btn-submit-applicant" style="width: 100%; justify-content: center;">
+          <i data-lucide="check"></i> Save & Rank Candidate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING AI CHATBOT -->
+  <div id="grok-chatbot-container">
+    <button id="chatbot-toggle-btn" class="chatbot-toggle-btn" title="Ask AI Assistant">
+      <i data-lucide="bot"></i>
+      <span>Ask AI</span>
+    </button>
+
+    <div id="chatbot-window" class="chatbot-window glass-card" style="display: none;">
+      <div class="chatbot-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div class="logo-icon" style="width: 28px; height: 28px; font-size: 0.8rem;">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <div>
+            <h4 style="margin: 0; font-size: 0.95rem; font-family: var(--font-heading);">Rank&File AI Assistant</h4>
+            <span style="font-size: 0.7rem; color: var(--success); font-weight: 600;">● Online</span>
+          </div>
+        </div>
+        <button id="chatbot-close-btn" class="close-modal" style="font-size: 1.2rem;">&times;</button>
+      </div>
+
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="chat-msg assistant">
+          Hello! 👋 I am your AI assistant for Rank&File. Ask me anything about candidate skill gap analysis, ATS formatting rules, or how to optimize resumes!
+        </div>
+      </div>
+
+      <div class="chatbot-input-container">
+        <input type="text" id="chatbot-input" placeholder="Ask AI assistant..." />
+        <button id="chatbot-send-btn" class="btn btn-primary btn-sm">
+          <i data-lucide="send"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT FILES (Corrected to /static/ paths) -->
+  <script src="/static/sample_data.js"></script>
+  <script src="/static/nlp_engine.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

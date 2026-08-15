@@ -1,0 +1,19 @@
+{
+  "name": "smart-resume-screening-and-candidate-ranking-tool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Smart resume screening and candidate ranking tool.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "npm run dev"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "http-server": "^14.1.1"
+  }
+}
