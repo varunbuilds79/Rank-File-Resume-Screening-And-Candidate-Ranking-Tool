@@ -1,3 +1,4 @@
+
 # 🚀 Rank&File — AI Resume Screening & Candidate Ranking System
 
 An AI-powered recruitment automation and ATS optimization platform built with **FastAPI**, **Vanilla JavaScript**, and **Groq (LLaMA 3.3 70B)**. It decomposes candidate evaluation into an explainable 3-layer matching model, generates tailored resumes, and provides an interactive AI assistant for recruitment workflows.
@@ -46,13 +47,16 @@ pip install fastapi uvicorn pypdf httpx jinja2 python-multipart
 ### 4. Configure Your Groq API Key
 * **Windows (PowerShell):**
   ```powershell
+  $env:GROQ_API_KEY="your_actual_groq_api_key"
   ```
 * **macOS / Linux:**
   ```bash
+  export GROQ_API_KEY="your_actual_groq_api_key"
   ```
 
 ### 5. Start the Local Server
 ```bash
+python -m uvicorn app:app --reload --port 3000
 ```
 
 ### 6. Open the Application
